@@ -48,8 +48,8 @@ const store = MongoStore.create({
     touchAfter: 24 * 3600,
 })
 
-store.on("error", () => {
-    console.log("Session store error", err);
+store.on("error", (error) => {
+    console.log("Session store error", error);
 })
 
 const sessionOptions = {
@@ -65,9 +65,8 @@ const sessionOptions = {
 };
 
 app.get("/", (req, res) => {
-    res.redirect("/listings");
+    res.send("Welcome to the homepage!");
 });
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -80,6 +79,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+    console.log("CURRENT USER:", req.user);
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     res.locals.currUser = req.user;
