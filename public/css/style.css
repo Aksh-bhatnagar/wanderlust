@@ -144,9 +144,11 @@ body {
  }
 
  .filter {
+  text-decoration: none;
   text-align: center;
   margin-right: 2rem;
   margin-top: 2rem;
+  color: #000;
   opacity: 0.7;
  }
 

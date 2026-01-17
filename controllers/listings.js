@@ -6,7 +6,7 @@ module.exports.index = async (req, res) => {
 };
 
 module.exports.renderNewForm = (req, res) => { 
-    res.render("listings/new.ejs");
+    res.render("listings/new.ejs"); 
 };
 
 module.exports.showListing = async (req, res) => {
@@ -23,12 +23,15 @@ module.exports.showListing = async (req, res) => {
 module.exports.createListing = async (req, res, next) => {
     let url = req.file.path;
     let filename = req.file.filename;
+    console.log(req.body);
+    console.log(req.body.listing)
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = {url, filename};
     await newListing.save();
     req.flash("success","New Listing Created!");
     res.redirect("/listings");
+    console.log(req.body)
 };
 
 module.exports.renderEditForm = async (req, res) => {
@@ -67,7 +70,47 @@ module.exports.destroyListing = async(req, res) => {
 
 
 //Categories
-module.exports.trendingListing = async (req, res) => {
-    const allListings = await Listing.find({});
+module.exports.trendings = async (req, res) => {
+    const allListings = await Listing.find({ category: "trendings" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.rooms = async (req, res) => {
+    const allListings = await Listing.find({ category: "rooms" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.cities = async (req, res) => {
+    const allListings = await Listing.find({ category: "cities"});
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.mountains = async (req, res) => {
+    const allListings = await Listing.find({ category: "mountains" });
+    res.render("listings/index.ejs", {allListings}); 
+};
+module.exports.castles = async (req, res) => {
+    const allListings = await Listing.find({ category: "castles" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.pools = async (req, res) => {
+    const allListings = await Listing.find({ category: "pools" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.campings = async (req, res) => {
+    const allListings = await Listing.find({ category: "campings" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.farms = async (req, res) => {
+    const allListings = await Listing.find({ category: "farms" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.arctics = async (req, res) => {
+    const allListings = await Listing.find({ category: "arctics" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.domes = async (req, res) => {
+    const allListings = await Listing.find({ category: "domes" });
+    res.render("listings/index.ejs", {allListings});
+};
+module.exports.boats = async (req, res) => {
+    const allListings = await Listing.find({ category: "boats" });
     res.render("listings/index.ejs", {allListings});
 };
