@@ -20,18 +20,19 @@ module.exports.showListing = async (req, res) => {
     res.render("listings/show.ejs", {listing});
 };
 
-module.exports.createListing = async (req, res, next) => {
+module.exports.createListing = async (req, res) => {
+    if (!req.file) {
+        req.flash("error", "Image is required");
+        return res.redirect("/listings/new");
+    }
     let url = req.file.path;
     let filename = req.file.filename;
-    console.log(req.body);
-    console.log(req.body.listing)
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
-    newListing.image = {url, filename};
+    newListing.image = { url, filename };
     await newListing.save();
-    req.flash("success","New Listing Created!");
+    req.flash("success", "New Listing Created!");
     res.redirect("/listings");
-    console.log(req.body)
 };
 
 module.exports.renderEditForm = async (req, res) => {
