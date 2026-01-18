@@ -11,8 +11,8 @@ main()
     console.log(err);
 });
 
-async function main() {
-    await mongoose.connect(MONGO_URL);
+async function main () {
+    await mongoose.connect(process.env.ATLASDB_URL);
 }
 
 const initDB = async () => {
@@ -23,3 +23,33 @@ const initDB = async () => {
 }
  
 initDB();
+// require("dotenv").config();
+// const mongoose = require("mongoose");
+// const Listing = require("../models/listing");
+// const { cloudinary } = require("../cloudConfig");
+// const { data } = require("./data");
+
+// mongoose.connect(process.env.ATLASDB_URL);
+
+// async function seedDB() {
+//   await Listing.deleteMany({});
+
+//   for (let item of data) {
+//     const upload = await cloudinary.uploader.upload(item.image.url, {
+//       folder: "wanderlust_DEV",
+//     });
+
+//     await Listing.create({
+//       ...item,
+//       image: {
+//         url: upload.secure_url,
+//         filename: upload.public_id,
+//       },
+//     });
+//   }
+
+//   console.log("Database seeded");
+//   mongoose.connection.close();
+// }
+
+// seedDB();

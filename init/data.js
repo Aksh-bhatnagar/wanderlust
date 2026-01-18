@@ -152,8 +152,8 @@ const sampleListings = [
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1618140052121-39fc6db33972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bG9kZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 10000,
-    location: "Fiji",
+    price: 4000,
+    location: "Suva",
     country: "Fiji",
     category: "boats"
   },
@@ -297,7 +297,7 @@ const sampleListings = [
     },
     price: 750,
     location: "Costa Rica",
-    country: "Costa Rica",
+    country: "San José",
     category: "farms"
   },
   {
@@ -348,7 +348,7 @@ const sampleListings = [
       url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
     price: 6000,
-    location: "Maldives",
+    location: "Malé",
     country: "Maldives",
     category: "arctics"
   },
@@ -374,7 +374,7 @@ const sampleListings = [
       url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
     price: 1800,
-    location: "Costa Rica",
+    location: "La Fortuna",
     country: "Costa Rica",
     category: "campings"
   },
