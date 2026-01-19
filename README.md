@@ -23,3 +23,6 @@ A full-stack, hotel & resorts listing website where users can register, log in, 
 - MVC-style structure (`controllers`, `models`, `routes`, `views`)
 
 ---
+
+##  To Run
+https://wanderlust-j6tm.onrender.com
